@@ -1,5 +1,6 @@
 package oblig3.demo;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -10,21 +11,22 @@ import java.util.List;
 @RestController
 public class Bestill {
 
-    private final List<Bilett> Biletter = new ArrayList<>();
+    @Autowired
+    private BilettRepository rep;
 
     @PostMapping("/kjop")
     public void lagreBilett(Bilett innBilett){
-        Biletter.add(innBilett);
+        rep.lagreBilett(innBilett);
 
     }
 
     @GetMapping("/hentBilett")
     public List<Bilett> hentBilett(){
-        return Biletter;
+        return rep.hentAlleBiletter();
     }
 
     @GetMapping("/slett")
     public void slett(){
-        Biletter.clear();
+        rep.slettAlleBiletter();
     }
 }
