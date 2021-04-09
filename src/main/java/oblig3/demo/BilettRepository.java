@@ -19,13 +19,13 @@ public class BilettRepository {
         }
 
         public List<Bilett> hentAlleBiletter(){
-            String sql = "SELECT * From Kunde";
+            String sql = "SELECT * From Bilett";
             List<Bilett> alleBiletter = db.query(sql, new BeanPropertyRowMapper(Bilett.class));
             return alleBiletter;
     }
 
     public void slettAlleBiletter(){
-        String sql = "DELETE FROM Kunde";
+        String sql = "DELETE FROM Bilett";
         db.update(sql);
     }
 
