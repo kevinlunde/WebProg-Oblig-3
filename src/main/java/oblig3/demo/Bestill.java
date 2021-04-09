@@ -15,18 +15,18 @@ public class Bestill {
     private BilettRepository rep;
 
     @PostMapping("/kjop")
-    public void lagreBilett(Bilett innBilett){
+    public void lagreBilett(Bilett innBilett) {
         rep.lagreBilett(innBilett);
 
     }
 
     @GetMapping("/hentBilett")
-    public List<Bilett> hentBilett(){
+    public List<Bilett> hentBilett() {
         return rep.hentAlleBiletter();
     }
 
     @GetMapping("/slett")
-    public void slett(){
+    public void slett() {
         rep.slettAlleBiletter();
     }
 }

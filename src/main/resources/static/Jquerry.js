@@ -1,4 +1,4 @@
-function kjop(){
+function kjop() {
 
     const innBilett = {
 
@@ -13,51 +13,51 @@ function kjop(){
     let Error = 0
 
     if (innBilett.film === "Velg") {
-        Error ++;
+        Error++;
     }
     if (innBilett.antall == null || innBilett.antall === '') {
         $("#ErrorAntall").html("Må skrive noe i antall");
-        Error ++;
+        Error++;
     }
     if (innBilett.fornavn == null || innBilett.fornavn === '') {
         $("#ErrorFornavn").html("Må skrive noe i fornavnet");
-        Error ++;
+        Error++;
     }
     if (innBilett.etternavn == null || innBilett.etternavn === '') {
         $("#ErrorEtternavn").html("Må skrive noe i etternavnet");
-        Error ++;
+        Error++;
     }
     if (innBilett.tlf == null || innBilett.tlf === '') {
         $("#ErrorTlf").html("Må skrive noe i telefonnr");
-        Error ++;
+        Error++;
     }
     if (innBilett.epost == null || innBilett.epost === '') {
         $("#ErrorEpost").html("Må skrive noe i epost");
-        Error ++;
+        Error++;
     }
 
-    if (Error === 0){
+    if (Error === 0) {
         $("#ErrorAntall").html(" ")
         $("#ErrorFornavn").html(" ")
         $("#ErrorEtternavn").html(" ")
         $("#ErrorTlf").html("")
         $("#ErrorEpost").html(" ")
 
-        $.post("/kjop", innBilett, function(){
+        $.post("/kjop", innBilett, function () {
             hentBilett();
 
         });
 
-        function hentBilett(){
-            $.get("/hentBilett", function(data){
+        function hentBilett() {
+            $.get("/hentBilett", function (data) {
                 formaterData(data);
             });
         }
 
-        function formaterData(biletter){
+        function formaterData(biletter) {
             let ut = '<table class="table table-hover"<tr> <th><h3>Film</h3></th><th><h3>Antall</h3></th> <th><h3>Fornavn</h3></th> <th><h3>Etternavn</h3></th> <th><h3>Telefonnr</h3></th> <th><h3>Epost</h3></th> </tr>';
-            for(const Bilett of biletter){
-                ut += "<tr> <td><p>" + Bilett.film +"</p></td> <td><p>"+Bilett.antall+"</p></td> <td><p>"+Bilett.fornavn+"</p></td> <td><p>"+Bilett.etternavn+"</p></td> <td><p>"+Bilett.tlf+"</p></td> <td><p>"+Bilett.epost+"</p></td> </tr>";
+            for (const Bilett of biletter) {
+                ut += "<tr> <td><p>" + Bilett.film + "</p></td> <td><p>" + Bilett.antall + "</p></td> <td><p>" + Bilett.fornavn + "</p></td> <td><p>" + Bilett.etternavn + "</p></td> <td><p>" + Bilett.tlf + "</p></td> <td><p>" + Bilett.epost + "</p></td> </tr>";
 
             }
             ut += "</table";
@@ -69,12 +69,13 @@ function kjop(){
         $("#Etternavn").html("");
         $("#Tlf").html("");
         $("#Epost").html("");
+    } else {
+        return
     }
-    else{return}
 }
 
-function slett(){
-    $.get("/slett", function(){
+function slett() {
+    $.get("/slett", function () {
     });
     $("#ut").html("");
     $("#ErrorAntall").html("");
