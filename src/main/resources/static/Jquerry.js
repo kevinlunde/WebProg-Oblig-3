@@ -10,6 +10,13 @@ function kjop() {
         epost: $("#Epost").val()
     }
 
+    $("#ErrorAntall").html("");
+    $("#ErrorFornavn").html("");
+    $("#ErrorEtternavn").html("");
+    $("#ErrorTlf").html("");
+    $("#ErrorEpost").html("");
+
+
     let Error = 0
 
     if (innBilett.film === "Velg") {
