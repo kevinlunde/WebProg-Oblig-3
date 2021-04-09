@@ -26,7 +26,7 @@ public class Bilett {
     }
 
     public void setFilm(String film) {
-        film = film;
+        this.film = film;
     }
 
     public String getAntall() {
@@ -34,7 +34,7 @@ public class Bilett {
     }
 
     public void setAntall(String antall) {
-        antall = antall;
+        this.antall = antall;
     }
 
     public String getFornavn() {
@@ -42,7 +42,7 @@ public class Bilett {
     }
 
     public void setFornavn(String fornavn) {
-        fornavn = fornavn;
+        this.fornavn = fornavn;
     }
 
     public String getEtternavn() {
@@ -50,15 +50,7 @@ public class Bilett {
     }
 
     public void setEtternavn(String etternavn) {
-        etternavn = etternavn;
-    }
-
-    public String getEpost() {
-        return epost;
-    }
-
-    public void setEpost(String epost) {
-        epost = epost;
+        this.etternavn = etternavn;
     }
 
     public String getTlf() {
@@ -66,6 +58,14 @@ public class Bilett {
     }
 
     public void setTlf(String tlf) {
-        tlf = tlf;
+        this.tlf = tlf;
+    }
+
+    public String getEpost() {
+        return epost;
+    }
+
+    public void setEpost(String epost) {
+        this.epost = epost;
     }
 }
